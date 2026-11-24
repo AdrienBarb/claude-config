@@ -1,0 +1,6 @@
+{
+  "name": "code",
+  "description": "Feature development chain: setup, spec, challenge, tickets, apex, review, verify, owner. Each skill has one role and hands over through files.",
+  "version": "0.3.0",
+  "author": { "name": "Adrien Barbier" }
+}

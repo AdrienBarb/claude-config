@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TASKS": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(afplay *)",
+      "Bash(typst *)",
+      "Bash(pdftotext *)",
+      "Bash(bash scripts/*)",
+      "Bash(which *)",
+      "Bash(test *)",
+      "Bash(mkdir -p *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(mkfs *)",
+      "Bash(dd *)",
+      "Bash(git push --force *)",
+      "Bash(*prisma reset*)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ],
+    "ask": [
+      "Bash(*pr merge*)",
+      "Bash(*prisma reset*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "model": "opus",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun __HOME__/.claude/scripts/command-validator/src/cli.ts"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun __HOME__/.claude/scripts/auto-rename-session/src/index.ts"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "__BUN__ __HOME__/.claude/scripts/statusline/src/index.ts",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "warp@claude-code-warp": true,
+    "pm@local": true,
+    "code@local": true
+  },
+  "extraKnownMarketplaces": {
+    "minimalist-entrepreneur": {
+      "source": {
+        "source": "github",
+        "repo": "slavingia/skills"
+      }
+    },
+    "dev-browser-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "SawyerHood/dev-browser"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    },
+    "local": {
+      "source": {
+        "source": "directory",
+        "path": "__HOME__/.claude/local-plugins"
+      }
+    }
+  },
+  "outputStyle": "Concise",
+  "spinnerTipsEnabled": false,
+  "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
+    },
+    "claude-fable-5-2": {
+      "effortLevel": "high"
+    }
+  },
+  "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "idleCompaction": false,
+  "switchModelsOnFlag": false,
+  "agentPushNotifEnabled": true
+}
