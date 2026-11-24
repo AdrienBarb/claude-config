@@ -67,7 +67,11 @@
   "enabledPlugins": {
     "warp@claude-code-warp": true,
     "pm@local": true,
-    "code@local": true
+    "code@local": true,
+    "meta@local": true
+  },
+  "skillOverrides": {
+    "anthropic-skills:skill-creator": "off"
   },
   "extraKnownMarketplaces": {
     "minimalist-entrepreneur": {

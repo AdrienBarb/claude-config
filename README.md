@@ -1,6 +1,6 @@
 # claude-config
 
-Ma config Claude Code, prête à installer sur une nouvelle machine : skills, agents, commands, rules, `CLAUDE.md`, hooks, statusline, et les plugins `code` et `pm`.
+Ma config Claude Code, prête à installer sur une nouvelle machine : skills, agents, commands, rules, `CLAUDE.md`, hooks, statusline, et les plugins `code`, `meta` et `pm`.
 
 ## Avant de quitter l'ancien Mac
 
@@ -41,11 +41,13 @@ CONTEXT7_API_KEY=... TREG_TOKEN=... ./mcp.sh
 
 ## Contenu
 
-- `skills/` : 23 skills.
+- `skills/` : 17 skills.
 - `agents/` : 25 agents.
 - `commands/` : `react-build`, `react-review`, `react-test`, `debug-ccli`.
 - `rules/` : react, typescript, mcp-organization.
 - `local-plugins/code` : le plugin `code` (apex, review, spec, tickets, verify, challenge, owner, setup).
+- `local-plugins/meta` : le plugin `meta`, pour créer, améliorer et auditer la config Claude Code (`/meta:skill`, `rule`, `agent`, `hook`, `plugin`, `prompt`, `claude-md`, `context`, `audit`, `skill-retro`). Chaque entrée lit les fichiers d'Anthropic dans le catalogue officiel de plugins et vérifie le résultat contre la doc officielle, gardée en local et retéléchargée au plus tous les 7 jours. Il lui faut du réseau et le catalogue `claude-plugins-official`, que Claude Code ajoute par défaut.
+- `local-plugins/.claude-plugin/marketplace.json` : la liste des plugins locaux (`pm`, `code`, `meta`).
 - `scripts/` : statusline, command-validator (hook qui bloque les commandes dangereuses), auto-rename-session (hook qui renomme les sessions), claude-code-ai.
 - `settings.json`, `settings.local.json`, `keybindings.json`, `CLAUDE.md`.
 
@@ -58,4 +60,5 @@ CONTEXT7_API_KEY=... TREG_TOKEN=... ./mcp.sh
 ## À savoir
 
 - `settings.json` met Claude en mode « bypass permissions » (aucune demande de confirmation). Vérifie que c'est accepté sur un poste d'entreprise.
+- `install.sh` ne supprime rien : les skills remplacées par `meta` (`skill-creator`, `rules-manager`, `agents-manager`, `skill-workflow-manager`, `prompt-creator`, `skill-retro`) restent dans `~/.claude/skills` d'une machine déjà installée tant que tu ne les effaces pas à la main.
 - C'est une copie, pas une synchronisation. Pour récupérer une mise à jour du repo : `git pull` puis `./install.sh`. Pour garder une modification faite dans `~/.claude`, recopie le fichier dans ce repo, puis commit et push.

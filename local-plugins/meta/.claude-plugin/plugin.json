@@ -1,0 +1,6 @@
+{
+  "name": "meta",
+  "description": "Create, improve and audit Claude Code configuration (skills, rules, agents, hooks, plugins, prompts, CLAUDE.md, context) from Anthropic's own plugins and the current official docs.",
+  "version": "0.1.0",
+  "author": { "name": "Adrien Barbier" }
+}

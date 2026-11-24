@@ -1,0 +1,24 @@
+{
+  "name": "local",
+  "owner": {
+    "name": "Adrien Barbier"
+  },
+  "plugins": [
+    {
+      "name": "pm",
+      "source": "./product-manager-skills",
+      "description": "Dean Peters' Product Manager Skills",
+      "strict": false
+    },
+    {
+      "name": "code",
+      "source": "./code",
+      "description": "Feature development chain: setup, spec, challenge, tickets, apex, review, verify, owner"
+    },
+    {
+      "name": "meta",
+      "source": "./meta",
+      "description": "Create, improve and audit Claude Code configuration from Anthropic's own plugins and the current official docs"
+    }
+  ]
+}
